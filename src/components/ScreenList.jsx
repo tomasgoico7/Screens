@@ -1,7 +1,7 @@
-// ScreenList.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ScreenDetail from "./ScreenDetail";
+import { Link } from "react-router-dom";
 
 export const ScreenList = () => {
   const [screens, setScreens] = useState([]);
@@ -60,13 +60,12 @@ export const ScreenList = () => {
         {screens.map((screen) => (
           <li key={screen.id}>
             {screen.name} - {screen.description}
-            <button onClick={() => handleScreenDetail(screen.id)}>
-              Detalle
-            </button>
+            <Link to={`/detail/${screen.id}`}>Detalles</Link>
+            <Link to={`/edit/${screen.id}`}>Editar</Link>
           </li>
         ))}
       </ul>
-      {selectedScreenId && <ScreenDetail screenId={selectedScreenId} />}
+      <Link to="/create">Crear Nueva Pantalla</Link>
     </>
   );
 };
