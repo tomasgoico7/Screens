@@ -11,10 +11,7 @@ export const EditScreenPage = () => {
   };
   return (
     <>
-      <h2>Editar Pantalla</h2>
       <ScreenForm onSubmit={handleEditScreen} screenId={id} />
-      {/* Agregar enlace para volver a la lista de pantallas */}
-      <Link to={`/detail/${id}`}>Volver al detalle</Link>
     </>
   );
 };

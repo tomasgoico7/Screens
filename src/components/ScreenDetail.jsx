@@ -28,7 +28,7 @@ export const ScreenDetail = ({ screenId }) => {
         setScreen(response.data);
       } catch (error) {
         setError(
-          "Error al obtener los detalles de la pantalla. Inténtalo de nuevo más tarde."
+          "Error al eliminar la pantalla. Inicie sesión o inténtalo de nuevo más tarde."
         );
       }
     };
@@ -55,7 +55,9 @@ export const ScreenDetail = ({ screenId }) => {
 
       // Manejar la eliminación exitosa, redireccionar o mostrar mensaje, etc.
     } catch (error) {
-      setError("Error al eliminar la pantalla. Inténtalo de nuevo más tarde.");
+      setError(
+        "Error al eliminar la pantalla. Inicie sesión o inténtalo de nuevo más tarde."
+      );
     }
   };
 
@@ -69,8 +71,13 @@ export const ScreenDetail = ({ screenId }) => {
 
   return (
     <div className="screen-detail-container">
-      <h1>Detalles de la Pantalla</h1>
+      <div className="button-back">
+        <Link to={"/screens"}>
+          <button>Volver Atrás</button>
+        </Link>
+      </div>
       <div className="detail-card">
+        <h1 className="title">Detalles de la Pantalla</h1>
         <div className="img-container">
           <img
             src={screen.picture_url}

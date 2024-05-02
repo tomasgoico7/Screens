@@ -9,10 +9,7 @@ export const CreateScreenPage = () => {
   };
   return (
     <>
-      <h2>Crear Nueva Pantalla</h2>
       <ScreenForm onSubmit={handleCreateScreen} />
-      {/* Agregar enlace para volver a la lista de pantallas */}
-      <Link to="/screens">Volver a la lista de pantallas</Link>
     </>
   );
 };

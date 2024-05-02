@@ -1,0 +1,91 @@
+.screenForm-container {
+  display: grid;
+  grid-template-rows: 20px 1fr;
+  gap: 20px;
+}
+
+.button-back {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.button-back button {
+  background-color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #3996f3;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button-back button:hover {
+  background-color: #f0f0f0;
+  color: rgb(28, 114, 182);
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  background-color: rgb(57, 150, 243);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  width: 300px;
+}
+
+.form-box h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.form-box label {
+  display: block;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.form-box input,
+.form-box select {
+  width: 95%;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.form-box input:focus {
+  outline: none;
+}
+
+.form-button {
+  width: 50%;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  color: #3996f3;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.form-button:hover {
+  background-color: rgb(28, 114, 182);
+  color: white;
+}
+
+.form-error {
+  color: red;
+  margin-top: 10px;
+}
