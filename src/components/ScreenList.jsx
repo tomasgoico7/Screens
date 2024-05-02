@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 export const ScreenList = () => {
   const [screens, setScreens] = useState([]);
   const [error, setError] = useState("");
-  const [selectedScreenId, setSelectedScreenId] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,10 +47,6 @@ export const ScreenList = () => {
     fetchData();
   }, []);
 
-  const handleScreenDetail = (screenId) => {
-    setSelectedScreenId(screenId);
-  };
-
   return (
     <>
       <h2>Lista de Pantallas</h2>
@@ -61,7 +56,6 @@ export const ScreenList = () => {
           <li key={screen.id}>
             {screen.name} - {screen.description}
             <Link to={`/detail/${screen.id}`}>Detalles</Link>
-            <Link to={`/edit/${screen.id}`}>Editar</Link>
           </li>
         ))}
       </ul>

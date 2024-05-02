@@ -1,6 +1,7 @@
 // ScreenDetail.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const ScreenDetail = ({ screenId }) => {
   const [screen, setScreen] = useState(null);
@@ -34,6 +35,29 @@ export const ScreenDetail = ({ screenId }) => {
     fetchScreenDetail();
   }, [screenId]);
 
+  const handleDeleteScreen = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        throw new Error("Token de autenticación no encontrado");
+      }
+
+      await axios.delete(
+        `https://challenge-front-7fw1.onrender.com/display/${screenId}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      // Manejar la eliminación exitosa, redireccionar o mostrar mensaje, etc.
+    } catch (error) {
+      setError("Error al eliminar la pantalla. Inténtalo de nuevo más tarde.");
+    }
+  };
+
   if (error) {
     return <p>{error}</p>;
   }
@@ -51,6 +75,12 @@ export const ScreenDetail = ({ screenId }) => {
         Resolución: {screen.resolution_width}x{screen.resolution_height}
       </p>
       <p>Tipo: {screen.type}</p>
+      <Link to={`/edit/${screenId}`}>
+        <button>Editar Pantalla</button>
+      </Link>
+      <Link to="/screens">
+        <button onClick={handleDeleteScreen}>Eliminar Pantalla</button>
+      </Link>
     </>
   );
 };

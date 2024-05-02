@@ -5,6 +5,7 @@ import { ScreenPage } from "./pages/ScreenPage";
 import { CreateScreenPage } from "./pages/CreateScreenPage"; // Importa la página para la creación de pantallas
 import { EditScreenPage } from "./pages/EditScreenPage"; // Importa la página para la edición de pantallas
 import { ScreenDetailPage } from "./pages/ScreenDetailPage"; // Importa la página para la edición de pantallas
+import { Footer } from "./components/Footer";
 
 export const ScreenApp = () => {
   return (
@@ -17,6 +18,7 @@ export const ScreenApp = () => {
         <Route path="/edit/:id" element={<EditScreenPage />} />
         <Route path="/detail/:id" element={<ScreenDetailPage />} />
       </Routes>
+      <Footer />
     </>
   );
 };

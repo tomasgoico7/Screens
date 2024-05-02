@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import "./../styles/Login.css";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -21,22 +22,30 @@ export const Login = () => {
     }
   };
   return (
-    <>
-      <h2>Iniciar Sesión</h2>
-      {error && <p>{error}</p>}
-      <input
-        type="email"
-        placeholder="Correo electrónico"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Contraseña"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Iniciar Sesión</button>
-    </>
+    <div className="login-container">
+      <div className="login-box">
+        <h2>Iniciar Sesión</h2>
+        {error && <p>{error}</p>}
+        <div className="form-group">
+          <label htmlFor="email">Correo electrónico:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Contraseña:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button onClick={handleLogin}>Iniciar Sesión</button>
+      </div>
+    </div>
   );
 };
