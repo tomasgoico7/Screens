@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./../styles/ScreenDetail.css";
 
 export const ScreenDetail = ({ screenId }) => {
   const [screen, setScreen] = useState(null);
@@ -67,21 +68,37 @@ export const ScreenDetail = ({ screenId }) => {
   }
 
   return (
-    <>
-      <h2>{screen.name}</h2>
-      <p>Descripción: {screen.description}</p>
-      <p>Precio por día: {screen.price_per_day}</p>
-      <p>
-        Resolución: {screen.resolution_width}x{screen.resolution_height}
-      </p>
-      <p>Tipo: {screen.type}</p>
-      <Link to={`/edit/${screenId}`}>
-        <button>Editar Pantalla</button>
-      </Link>
-      <Link to="/screens">
-        <button onClick={handleDeleteScreen}>Eliminar Pantalla</button>
-      </Link>
-    </>
+    <div className="screen-detail-container">
+      <h1>Detalles de la Pantalla</h1>
+      <div className="detail-card">
+        <div className="img-container">
+          <img
+            src={screen.picture_url}
+            alt="Screen Picture"
+            className="screen-image"
+          />
+        </div>
+        <div className="info-container">
+          <h2>{screen.name}</h2>
+          <p>Descripción: {screen.description}</p>
+          <p>Precio por día: {screen.price_per_day}</p>
+          <p>
+            Resolución: {screen.resolution_width}x{screen.resolution_height}
+          </p>
+          <p>Tipo: {screen.type}</p>
+        </div>
+        <div className="buttons-container">
+          <Link to={`/edit/${screenId}`}>
+            <button className="edit-button">Editar Pantalla</button>
+          </Link>
+          <Link to="/screens">
+            <button className="delete-button" onClick={handleDeleteScreen}>
+              Eliminar Pantalla
+            </button>
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };
 

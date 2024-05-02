@@ -1,0 +1,88 @@
+.screen-detail-container {
+  padding: 10px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.detail-card {
+  background-color: rgb(57, 150, 243);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: auto;
+  margin: auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 50%;
+  grid-template-areas:
+    "img info"
+    "button button";
+}
+
+@media screen and (max-width: 768px) {
+  .detail-card {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "img"
+      "info"
+      "button";
+  }
+}
+.info-container {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  grid-area: button;
+}
+
+.img-container {
+  grid-area: img;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen-image {
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.edit-button,
+.delete-button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: white;
+  color: rgb(57, 150, 243);
+}
+
+.edit-button:hover {
+  background-color: rgb(28, 114, 182);
+}
+
+.delete-button {
+  background-color: rgb(255, 0, 0);
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: rgb(200, 0, 0);
+}

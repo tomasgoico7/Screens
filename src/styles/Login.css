@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Usa min-height en lugar de height para evitar el desplazamiento vertical */
 }
 
 .login-box {

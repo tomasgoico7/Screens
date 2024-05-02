@@ -6,7 +6,6 @@ export const ScreenDetailPage = () => {
   const { id } = useParams();
   return (
     <>
-      <h1>Detalles de la Pantalla</h1>
       <ScreenDetail screenId={id} />
     </>
   );
