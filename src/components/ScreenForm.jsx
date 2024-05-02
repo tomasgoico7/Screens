@@ -11,6 +11,7 @@ export const ScreenForm = ({ onSubmit, screenId }) => {
   const [resolutionHeight, setResolutionHeight] = useState(0);
   const [type, setType] = useState("indoor");
   const [error, setError] = useState("");
+
   useEffect(() => {
     const fetchScreenDetail = async () => {
       try {
@@ -177,11 +178,9 @@ export const ScreenForm = ({ onSubmit, screenId }) => {
               <option value="outdoor">Outdoor</option>
             </select>
           </div>
-          <Link to="/screens">
-            <button type="submit" className="form-button">
-              {screenId ? "Editar" : "Crear"} Pantalla
-            </button>
-          </Link>
+          <button type="submit" className="form-button">
+            {screenId ? "Editar" : "Crear"} Pantalla
+          </button>
         </div>
       </form>
     </div>

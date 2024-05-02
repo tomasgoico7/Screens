@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ScreenDetail from "./ScreenDetail";
 import { Link } from "react-router-dom";
+import { Pagination } from "./Pagination"; // Importa el componente Pagination
+import "./../styles/ScreenList.css";
 
 export const ScreenList = () => {
   const [screens, setScreens] = useState([]);
   const [error, setError] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+
+  const cardsPerPage = 12;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,8 +24,8 @@ export const ScreenList = () => {
           "https://challenge-front-7fw1.onrender.com/display",
           {
             params: {
-              pageSize: 10,
-              offset: 0,
+              pageSize: cardsPerPage,
+              offset: (currentPage - 1) * cardsPerPage,
             },
             headers: {
               "Content-Type": "application/json",
@@ -31,6 +36,7 @@ export const ScreenList = () => {
 
         if (response.data && Array.isArray(response.data.data)) {
           setScreens(response.data.data);
+          setTotalPages(Math.ceil(response.data.total / cardsPerPage)); // Calcula el número total de páginas
         } else {
           throw new Error(
             "La respuesta del servidor no tiene el formato esperado"
@@ -45,21 +51,42 @@ export const ScreenList = () => {
     };
 
     fetchData();
-  }, []);
+  }, [currentPage]); // Actualiza los datos cuando currentPage cambia
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
-    <>
-      <h2>Lista de Pantallas</h2>
-      {error && <p>{error}</p>}
-      <ul>
+    <div className="ScreenList-container">
+      <div className="header-container">
+        <h2>Lista de Pantallas</h2>
+        <Link to="/create" className="button-newScreen">
+          Crear Nueva Pantalla
+        </Link>
+      </div>
+      <div className="cards-container">
+        {error && <p>{error}</p>}
         {screens.map((screen) => (
-          <li key={screen.id}>
-            {screen.name} - {screen.description}
-            <Link to={`/detail/${screen.id}`}>Detalles</Link>
-          </li>
+          <div key={screen.id} className="card-container">
+            <img src={screen.picture_url} alt="Screen" className="card-image" />
+            <div className="card-title">{screen.name}</div>
+            <div className="card-description">{screen.description}</div>
+            <div className="card-link-container">
+              <Link to={`/detail/${screen.id}`} className="card-link">
+                Detalles
+              </Link>
+            </div>
+          </div>
         ))}
-      </ul>
-      <Link to="/create">Crear Nueva Pantalla</Link>
-    </>
+      </div>
+      <div className="pagination-container">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      </div>
+    </div>
   );
 };
