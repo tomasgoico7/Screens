@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Pagination } from "./Pagination"; // Importa el componente Pagination
+import { Pagination } from "./Pagination";
+import { Filter } from "./Filter"; // Importa el componente Filter
 import "./../styles/ScreenList.css";
 
 export const ScreenList = () => {
@@ -9,6 +10,7 @@ export const ScreenList = () => {
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [filters, setFilters] = useState({ name: "", type: "" });
 
   const cardsPerPage = 12;
 
@@ -26,6 +28,7 @@ export const ScreenList = () => {
             params: {
               pageSize: cardsPerPage,
               offset: (currentPage - 1) * cardsPerPage,
+              ...filters, // Agrega los filtros a los parámetros de consulta
             },
             headers: {
               "Content-Type": "application/json",
@@ -36,7 +39,7 @@ export const ScreenList = () => {
 
         if (response.data && Array.isArray(response.data.data)) {
           setScreens(response.data.data);
-          setTotalPages(Math.ceil(response.data.total / cardsPerPage)); // Calcula el número total de páginas
+          setTotalPages(Math.ceil(response.data.total / cardsPerPage));
         } else {
           throw new Error(
             "La respuesta del servidor no tiene el formato esperado"
@@ -51,16 +54,21 @@ export const ScreenList = () => {
     };
 
     fetchData();
-  }, [currentPage]); // Actualiza los datos cuando currentPage cambia
+  }, [currentPage, filters]); // Agrega filters como dependencia
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+  };
+
+  const handleFilterChange = (newFilters) => {
+    setFilters(newFilters);
   };
 
   return (
     <div className="ScreenList-container">
       <div className="header-container">
         <h2>Lista de Pantallas</h2>
+        <Filter onChange={handleFilterChange} />
         <Link to="/create" className="button-newScreen">
           Crear Nueva Pantalla
         </Link>

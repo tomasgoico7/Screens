@@ -1,0 +1,39 @@
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3996f3;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.filter-group {
+  margin-bottom: 10px;
+}
+
+.filter-group label {
+  font-weight: bold;
+  color: white;
+}
+
+.filter-input,
+.filter-select {
+  width: 80%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.filter-input:focus,
+.filter-select:focus {
+  outline: none;
+  border-color: #3996f3;
+}

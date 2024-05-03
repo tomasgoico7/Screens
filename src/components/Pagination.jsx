@@ -10,6 +10,10 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     return pageNumbers;
   };
 
+  if (currentPage > totalPages) {
+    currentPage = totalPages;
+  }
+
   return (
     <div className="pagination-container">
       <button
