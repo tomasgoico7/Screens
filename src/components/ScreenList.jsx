@@ -79,10 +79,10 @@ export const ScreenList = () => {
           <div key={screen.id} className="card-container">
             <img src={screen.picture_url} alt="Screen" className="card-image" />
             <div className="card-title">{screen.name}</div>
-            <div className="card-description">{screen.description}</div>
+            <div className="card-price">${screen.price_per_day}</div>
             <div className="card-link-container">
               <Link to={`/detail/${screen.id}`} className="card-link">
-                Detalles
+                Detalle
               </Link>
             </div>
           </div>

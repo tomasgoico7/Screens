@@ -43,7 +43,7 @@
 }
 
 .card-container {
-  background-color: rgb(57, 150, 243);
+  background: linear-gradient(to bottom right, #68d8e0, #3996f3);
   color: white;
   padding: 20px;
   border-radius: 10px;
@@ -57,7 +57,7 @@
 .card-image {
   border-radius: 10px;
   width: 100%;
-  max-height: 100px; /* Ajusta la altura máxima de la imagen */
+  height: 200px; /* Ajusta la altura máxima de la imagen */
   object-fit: cover;
 }
 

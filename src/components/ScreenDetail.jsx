@@ -88,9 +88,9 @@ export const ScreenDetail = ({ screenId }) => {
         <div className="info-container">
           <h2>{screen.name}</h2>
           <p>Descripción: {screen.description}</p>
-          <p>Precio por día: {screen.price_per_day}</p>
+          <p>Precio por día: ${screen.price_per_day}</p>
           <p>
-            Resolución: {screen.resolution_width}x{screen.resolution_height}
+            Resolución: {screen.resolution_width} x {screen.resolution_height}
           </p>
           <p>Tipo: {screen.type}</p>
         </div>

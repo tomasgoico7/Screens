@@ -22,7 +22,7 @@
 }
 
 .detail-card {
-  background-color: rgb(57, 150, 243);
+  background: linear-gradient(to bottom right, #68d8e0, #3996f3);
   color: white;
   padding: 20px;
   border-radius: 10px;
@@ -50,6 +50,7 @@
   align-items: center;
   max-height: 300px; /* Limita la altura máxima de la imagen */
   overflow: hidden; /* Oculta el exceso de la imagen */
+  border-radius: 10px;
 }
 
 .screen-image {
@@ -62,6 +63,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .buttons-container {
@@ -92,6 +94,7 @@
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  transition: background-color 0.5s ease;
 }
 
 .edit-button {
@@ -101,6 +104,7 @@
 
 .edit-button:hover {
   background-color: rgb(28, 114, 182);
+  color: white;
 }
 
 .delete-button {
@@ -110,4 +114,5 @@
 
 .delete-button:hover {
   background-color: rgb(200, 0, 0);
+  color: white;
 }
