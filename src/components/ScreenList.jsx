@@ -67,7 +67,6 @@ export const ScreenList = () => {
   return (
     <div className="ScreenList-container">
       <div className="header-container">
-        <h2>Lista de Pantallas</h2>
         <Filter onChange={handleFilterChange} />
         <Link to="/create" className="button-newScreen">
           Crear Nueva Pantalla
@@ -76,16 +75,21 @@ export const ScreenList = () => {
       <div className="cards-container">
         {error && <p>{error}</p>}
         {screens.map((screen) => (
-          <div key={screen.id} className="card-container">
-            <img src={screen.picture_url} alt="Screen" className="card-image" />
-            <div className="card-title">{screen.name}</div>
-            <div className="card-price">${screen.price_per_day}</div>
-            <div className="card-link-container">
-              <Link to={`/detail/${screen.id}`} className="card-link">
-                Detalle
-              </Link>
+          <Link to={`/detail/${screen.id}`} className="card-link-container">
+            <div key={screen.id} className="card-container">
+              <img
+                src={screen.picture_url}
+                alt="Screen"
+                className="card-image"
+              />
+              <div className="card-title">{screen.name}</div>
+              <div className="card-resolution">
+                {screen.resolution_width} x {screen.resolution_height}
+              </div>
+              <div className="card-price">$ {screen.price_per_day}</div>
+              <div className="card-link-container"></div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <div className="pagination-container">
