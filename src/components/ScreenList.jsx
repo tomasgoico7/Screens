@@ -39,7 +39,7 @@ export const ScreenList = () => {
 
         if (response.data && Array.isArray(response.data.data)) {
           setScreens(response.data.data);
-          setTotalPages(Math.ceil(response.data.total / cardsPerPage));
+          setTotalPages(Math.ceil(response.data.totalCount / cardsPerPage));
         } else {
           throw new Error(
             "La respuesta del servidor no tiene el formato esperado"

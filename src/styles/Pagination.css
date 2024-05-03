@@ -7,9 +7,21 @@ button {
   transition: background-color 0.3s ease, color 0.3s ease;
   align-self: end;
   margin-right: auto;
+  cursor: pointer;
 }
 
 button:hover {
   background-color: rgba(255, 255, 255, 0.4);
   color: #3996f3;
+}
+
+.page-numbers button {
+  text-decoration: none;
+  color: #3996f3;
+  background-color: white;
+  border: none;
+  padding: 5px 10px;
+  align-self: end;
+  margin-right: auto;
+  cursor: pointer;
 }
