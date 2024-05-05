@@ -48,7 +48,7 @@ npm run start
 
 ## Notas adicionales:
 
-- Si encuentras algún problema durante la ejecución del proyecto, verifica la consola del navegador para obtener mensajes de error detallados.
+- Si encontras algún problema durante la ejecución del proyecto, verifica la consola del navegador para obtener mensajes de error detallados.
 
 ## Decisiones de Diseño
 
