@@ -27,6 +27,14 @@
   z-index: -1;
 }
 
+.no-screens-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
 .header-container {
   padding: 0px 20px;
   display: flex;

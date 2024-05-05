@@ -1,9 +1,10 @@
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom"; // Importar useNavigate
 import "./../styles/ScreenForm.css";
-import { Link } from "react-router-dom";
 
 export const ScreenForm = ({ onSubmit, screenId }) => {
+  const navigate = useNavigate(); // Obtener la función navigate
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
@@ -59,7 +60,6 @@ export const ScreenForm = ({ onSubmit, screenId }) => {
 
       let response;
       if (screenId) {
-        // Si se proporciona un screenId, entonces estamos editando una pantalla existente
         response = await axios.put(
           `https://challenge-front-7fw1.onrender.com/display/${screenId}`,
           {
@@ -78,7 +78,6 @@ export const ScreenForm = ({ onSubmit, screenId }) => {
           }
         );
       } else {
-        // Si no se proporciona un screenId, entonces estamos creando una nueva pantalla
         response = await axios.post(
           "https://challenge-front-7fw1.onrender.com/display",
           {
@@ -98,16 +97,16 @@ export const ScreenForm = ({ onSubmit, screenId }) => {
         );
       }
 
-      onSubmit(response.data); // Pasar la pantalla actualizada o creada al componente padre
+      onSubmit(response.data);
+      navigate("/screens"); // Navegar al componente anterior
 
-      // Reiniciar los estados a sus valores iniciales
       setName("");
       setDescription("");
       setPrice(0);
       setResolutionWidth(0);
       setResolutionHeight(0);
       setType("indoor");
-      setError(""); // También podrías limpiar el mensaje de error si lo deseas
+      setError("");
     } catch (error) {
       setError(
         "Error al guardar la pantalla. Por favor, revisa los datos ingresados e inténtalo de nuevo."

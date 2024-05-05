@@ -90,6 +90,9 @@ export const ScreenList = () => {
       {isLoading && <p className="loading-message">Cargando pantallas...</p>}
       <div className="cards-container">
         {error && <p>{error}</p>}
+        {screens.length === 0 && !isLoading && (
+          <p className="no-screens-message">No hay pantallas para mostrar.</p>
+        )}
         {screens.map((screen) => (
           <Link
             to={`/detail/${screen.id}`}
