@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import { NavBar } from "./components/NavBar";
+import { NavBar } from "./components/NavBar/NavBar";
 import { LoginPage } from "./pages/LoginPage";
 import { ScreenPage } from "./pages/ScreenPage";
-import { CreateScreenPage } from "./pages/CreateScreenPage"; // Importa la página para la creación de pantallas
-import { EditScreenPage } from "./pages/EditScreenPage"; // Importa la página para la edición de pantallas
-import { ScreenDetailPage } from "./pages/ScreenDetailPage"; // Importa la página para la edición de pantallas
-import { Footer } from "./components/Footer";
+import { CreateScreenPage } from "./pages/CreateScreenPage";
+import { EditScreenPage } from "./pages/EditScreenPage";
+import { ScreenDetailPage } from "./pages/ScreenDetailPage";
+import { Footer } from "./components/Footer/Footer";
 import "./styles/ScreenApp.css";
 
 export const ScreenApp = () => {

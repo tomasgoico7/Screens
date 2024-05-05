@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { ScreenForm } from "../components/ScreenForm";
+import { ScreenForm } from "../components/ScreenForm/ScreenForm";
 
 export const EditScreenPage = () => {
   const { id } = useParams(); // Obtener el ID de la pantalla a editar de los parámetros de la URL

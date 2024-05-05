@@ -1,18 +1,13 @@
 import React from "react";
-import "./../styles/Pagination.css";
+import { usePaginationLogic } from "./PaginationLogic";
+import "./Pagination.css";
 
 export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  const getPageNumbers = () => {
-    const pageNumbers = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pageNumbers.push(i);
-    }
-    return pageNumbers;
-  };
-
-  if (currentPage > totalPages) {
-    currentPage = totalPages;
-  }
+  const { getPageNumbers } = usePaginationLogic(
+    currentPage,
+    totalPages,
+    onPageChange
+  );
 
   return (
     <div className="pagination-container">

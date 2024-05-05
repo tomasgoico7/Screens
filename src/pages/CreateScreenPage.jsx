@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { ScreenForm } from "../components/ScreenForm";
+import { ScreenForm } from "../components/ScreenForm/ScreenForm";
 
 export const CreateScreenPage = () => {
   const handleCreateScreen = (newScreenData) => {

@@ -1,19 +1,10 @@
-import React, { useState } from "react";
-import "./../styles/Filter.css";
+import React from "react";
+import { useFilterLogic } from "./FilterLogic";
+import "./Filter.css";
 
 export const Filter = ({ onChange }) => {
-  const [name, setName] = useState("");
-  const [type, setType] = useState("");
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-    onChange({ name: e.target.value, type });
-  };
-
-  const handleTypeChange = (e) => {
-    setType(e.target.value);
-    onChange({ name, type: e.target.value });
-  };
+  const { name, type, handleNameChange, handleTypeChange } =
+    useFilterLogic(onChange);
 
   return (
     <div className="filter-container">
