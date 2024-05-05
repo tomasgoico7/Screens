@@ -7,6 +7,7 @@ import "./../styles/ScreenDetail.css";
 export const ScreenDetail = ({ screenId }) => {
   const [screen, setScreen] = useState(null);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchScreenDetail = async () => {
@@ -30,6 +31,8 @@ export const ScreenDetail = ({ screenId }) => {
         setError(
           "Error al eliminar la pantalla. Inicie sesión o inténtalo de nuevo más tarde."
         );
+      } finally {
+        setIsLoading(false); // Desactivar el estado de carga cuando la solicitud se complete
       }
     };
 
@@ -66,7 +69,11 @@ export const ScreenDetail = ({ screenId }) => {
   }
 
   if (!screen) {
-    return <p>Cargando detalles de la pantalla...</p>;
+    return (
+      <div className="screen-detail-container">
+        <p className="loading-message">Cargando detalles de la pantalla...</p>
+      </div>
+    );
   }
 
   return (
@@ -109,4 +116,4 @@ export const ScreenDetail = ({ screenId }) => {
   );
 };
 
-export default ScreenDetail; // Exportación del componente como default
+export default ScreenDetail;

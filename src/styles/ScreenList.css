@@ -19,6 +19,14 @@
   margin: auto auto; /* Centra vertical y horizontalmente */
 }
 
+.loading-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
 .header-container {
   padding: 0px 20px;
   display: flex;

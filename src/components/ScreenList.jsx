@@ -12,19 +12,16 @@ export const ScreenList = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [filters, setFilters] = useState({ name: "", type: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); // Estado para controlar el estado de carga
+  const [isLoading, setIsLoading] = useState(true);
 
   const cardsPerPage = 12;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIsLoading(true); // Activar el estado de carga
-
         const token = localStorage.getItem("token");
         if (!token) {
           setIsLoggedIn(false);
-          setIsLoading(false); // Desactivar el estado de carga
           return;
         } else {
           setIsLoggedIn(true);
@@ -59,7 +56,7 @@ export const ScreenList = () => {
           "Error al obtener la lista de pantallas. Inténtalo de nuevo más tarde."
         );
       } finally {
-        setIsLoading(false); // Desactivar el estado de carga cuando la solicitud se complete
+        setIsLoading(false);
       }
     };
 
@@ -90,7 +87,7 @@ export const ScreenList = () => {
           Crear Nueva Pantalla
         </Link>
       </div>
-      {isLoading && <p>Cargando pantallas...</p>} {/* Mensaje de carga */}
+      {isLoading && <p className="loading-message">Cargando pantallas...</p>}
       <div className="cards-container">
         {error && <p>{error}</p>}
         {screens.map((screen) => (
