@@ -2,6 +2,8 @@
 
 Este proyecto proporciona una interfaz de usuario para ver, crear, editar y eliminar pantallas . Permite a los usuarios autenticados realizar estas acciones a través de una API.
 
+[## Link a la App Desployada](https://challenge-screens-goico.netlify.app/)
+
 ## Características principales:
 
 - **Vista de lista de pantallas:** Muestra una lista paginada de pantallas digitales con opciones de filtrado por nombre y tipo.
@@ -38,7 +40,7 @@ npm install
 3. **Ejecutar la aplicación:**
 
 ```bash
-npm start
+npm run start
 ```
 
 4. **Acceder a la aplicación:**
