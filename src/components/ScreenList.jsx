@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Pagination } from "./Pagination";
-import { Filter } from "./Filter"; // Importa el componente Filter
+import { Filter } from "./Filter";
 import "./../styles/ScreenList.css";
 
 export const ScreenList = () => {
@@ -11,15 +11,23 @@ export const ScreenList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [filters, setFilters] = useState({ name: "", type: "" });
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Estado para controlar el estado de carga
 
   const cardsPerPage = 12;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true); // Activar el estado de carga
+
         const token = localStorage.getItem("token");
         if (!token) {
-          throw new Error("Token de autenticación no encontrado");
+          setIsLoggedIn(false);
+          setIsLoading(false); // Desactivar el estado de carga
+          return;
+        } else {
+          setIsLoggedIn(true);
         }
 
         const response = await axios.get(
@@ -28,7 +36,7 @@ export const ScreenList = () => {
             params: {
               pageSize: cardsPerPage,
               offset: (currentPage - 1) * cardsPerPage,
-              ...filters, // Agrega los filtros a los parámetros de consulta
+              ...filters,
             },
             headers: {
               "Content-Type": "application/json",
@@ -50,11 +58,13 @@ export const ScreenList = () => {
         setError(
           "Error al obtener la lista de pantallas. Inténtalo de nuevo más tarde."
         );
+      } finally {
+        setIsLoading(false); // Desactivar el estado de carga cuando la solicitud se complete
       }
     };
 
     fetchData();
-  }, [currentPage, filters]); // Agrega filters como dependencia
+  }, [currentPage, filters]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -64,6 +74,14 @@ export const ScreenList = () => {
     setFilters(newFilters);
   };
 
+  if (!isLoggedIn) {
+    return (
+      <p className="login-message">
+        Por favor, inicia sesión para acceder a las pantallas.
+      </p>
+    );
+  }
+
   return (
     <div className="ScreenList-container">
       <div className="header-container">
@@ -72,11 +90,16 @@ export const ScreenList = () => {
           Crear Nueva Pantalla
         </Link>
       </div>
+      {isLoading && <p>Cargando pantallas...</p>} {/* Mensaje de carga */}
       <div className="cards-container">
         {error && <p>{error}</p>}
         {screens.map((screen) => (
-          <Link to={`/detail/${screen.id}`} className="card-link-container">
-            <div key={screen.id} className="card-container">
+          <Link
+            to={`/detail/${screen.id}`}
+            className="card-link-container"
+            key={screen.id}
+          >
+            <div className="card-container">
               <img
                 src={screen.picture_url}
                 alt="Screen"
@@ -87,7 +110,6 @@ export const ScreenList = () => {
                 {screen.resolution_width} x {screen.resolution_height}
               </div>
               <div className="card-price">$ {screen.price_per_day}</div>
-              <div className="card-link-container"></div>
             </div>
           </Link>
         ))}

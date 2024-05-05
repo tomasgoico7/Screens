@@ -99,6 +99,15 @@ export const ScreenForm = ({ onSubmit, screenId }) => {
       }
 
       onSubmit(response.data); // Pasar la pantalla actualizada o creada al componente padre
+
+      // Reiniciar los estados a sus valores iniciales
+      setName("");
+      setDescription("");
+      setPrice(0);
+      setResolutionWidth(0);
+      setResolutionHeight(0);
+      setType("indoor");
+      setError(""); // También podrías limpiar el mensaje de error si lo deseas
     } catch (error) {
       setError(
         "Error al guardar la pantalla. Por favor, revisa los datos ingresados e inténtalo de nuevo."
@@ -138,7 +147,7 @@ export const ScreenForm = ({ onSubmit, screenId }) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="price">Precio por día:</label>
+            <label htmlFor="price">Precio por día (USD):</label>
             <input
               type="number"
               id="price"
@@ -148,7 +157,9 @@ export const ScreenForm = ({ onSubmit, screenId }) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="resolutionWidth">Resolución - Ancho:</label>
+            <label htmlFor="resolutionWidth">
+              Resolución - Ancho (metros):
+            </label>
             <input
               type="number"
               id="resolutionWidth"
@@ -158,7 +169,9 @@ export const ScreenForm = ({ onSubmit, screenId }) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="resolutionHeight">Resolución - Alto:</label>
+            <label htmlFor="resolutionHeight">
+              Resolución - Alto (metros):
+            </label>
             <input
               type="number"
               id="resolutionHeight"

@@ -24,13 +24,15 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       </button>
       <div className="page-numbers">
         {getPageNumbers().map((pageNumber) => (
-          <button
+          <span
             key={pageNumber}
             onClick={() => onPageChange(pageNumber)}
-            className={pageNumber === currentPage ? "active" : ""}
+            className={
+              pageNumber === currentPage ? "active page-number" : "page-number"
+            }
           >
             {pageNumber}
-          </button>
+          </span>
         ))}
       </div>
       <button

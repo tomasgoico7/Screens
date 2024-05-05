@@ -25,6 +25,7 @@ export const Login = () => {
       );
       localStorage.setItem("token", response.data.token);
       setIsLoggedIn(true); // Establecer el estado de inicio de sesión como verdadero
+      setError(""); // Reiniciar el estado de error cuando se inicia sesión correctamente
     } catch (error) {
       console.error("Error al iniciar sesión", error);
       setError("Error al iniciar sesión. Verifica tus credenciales.");

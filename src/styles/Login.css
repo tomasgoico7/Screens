@@ -5,11 +5,12 @@
 }
 
 .login-box {
-  background-color: rgb(57, 150, 243);
+  background-color: #fff;
   padding: 20px;
+  border: 1px solid #8fc4fa;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  color: white;
+  color: #555;
   text-align: center; /* Centra el contenido del cuadro de inicio de sesión */
   width: 300px; /* Establece un ancho fijo */
 }
@@ -28,8 +29,8 @@
 .login-box input {
   width: 95%; /* Ocupa todo el ancho disponible */
   padding: 8px;
-  border-radius: 5px;
-  border: none;
+  border: 1px solid #8fc4fa;
+  border-radius: 10px;
   margin-bottom: 10px; /* Añade espacio entre los inputs */
 }
 
@@ -41,8 +42,8 @@
   width: 50%;
   margin-top: 20px;
   padding: 10px;
-  border-radius: 5px;
-  border: none;
+  border: 1px solid #8fc4fa;
+  border-radius: 10px;
   background-color: white;
   color: rgb(57, 150, 243);
   cursor: pointer;

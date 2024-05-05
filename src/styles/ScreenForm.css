@@ -5,27 +5,23 @@
 }
 
 .button-back {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
   margin-top: 20px;
   margin-left: 20px;
 }
 
 .button-back button {
+  padding: 10px;
+  border: 1px solid #8fc4fa;
+  border-radius: 10px;
   background-color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: #3996f3;
-  font-size: 16px;
+  color: rgb(57, 150, 243);
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.5s ease;
 }
 
 .button-back button:hover {
-  background-color: #f0f0f0;
-  color: rgb(28, 114, 182);
+  background-color: rgb(28, 114, 182);
+  color: white;
 }
 
 .form-container {
@@ -35,11 +31,12 @@
 }
 
 .form-box {
-  background-color: rgb(57, 150, 243);
+  background-color: #fff;
   padding: 20px;
+  border: 1px solid #8fc4fa;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  color: white;
+  color: #555;
   text-align: center;
   width: 300px;
 }
@@ -57,11 +54,15 @@
 
 .form-box input,
 .form-box select {
-  width: 95%;
+  width: 95%; /* Ocupa todo el ancho disponible */
   padding: 8px;
-  border-radius: 5px;
-  border: none;
-  margin-bottom: 10px;
+  border: 1px solid #8fc4fa;
+  border-radius: 10px;
+  margin-bottom: 10px; /* Añade espacio entre los inputs */
+}
+
+.form-box select {
+  width: 100%;
 }
 
 .form-box input:focus {
@@ -72,10 +73,10 @@
   width: 50%;
   margin-top: 20px;
   padding: 10px;
-  border-radius: 5px;
-  border: none;
+  border: 1px solid #8fc4fa;
+  border-radius: 10px;
   background-color: white;
-  color: #3996f3;
+  color: rgb(57, 150, 243);
   cursor: pointer;
   transition: background-color 0.5s ease;
 }

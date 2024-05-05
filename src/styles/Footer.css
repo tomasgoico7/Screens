@@ -1,7 +1,8 @@
 .footer {
   width: 100%;
-  background-color: rgb(57, 150, 243);
-  color: white;
+  background-color: #fff;
+  border-top: 1px solid #8fc4fa;
+  color: #555;
   text-align: center;
   padding: 20px;
   box-sizing: border-box; /* Ajusta el modelo de caja para incluir el padding dentro del ancho */
