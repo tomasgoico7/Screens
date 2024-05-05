@@ -12,7 +12,7 @@
 }
 
 .button-back {
-  margin: 20px; /* Ajusta el margen en todos los lados */
+  margin: 20px;
 }
 
 .button-back button {
@@ -37,7 +37,7 @@
   margin: auto;
   display: grid;
   gap: 20px;
-  grid-template-columns: 1fr 1fr; /* Ajusta las columnas para mantener el tamaño de la imagen constante */
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "title title"
     "img info"
@@ -53,14 +53,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 300px; /* Limita la altura máxima de la imagen */
-  overflow: hidden; /* Oculta el exceso de la imagen */
+  max-height: 300px;
+  overflow: hidden;
   border-radius: 10px;
 }
 
 .screen-image {
   border-radius: 10px;
-  width: 100%; /* Asegura que la imagen llene el contenedor */
+  width: 100%;
 }
 
 .info-container {

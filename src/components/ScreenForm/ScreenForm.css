@@ -54,11 +54,11 @@
 
 .form-box input,
 .form-box select {
-  width: 95%; /* Ocupa todo el ancho disponible */
+  width: 95%;
   padding: 8px;
   border: 1px solid #8fc4fa;
   border-radius: 10px;
-  margin-bottom: 10px; /* Añade espacio entre los inputs */
+  margin-bottom: 10px;
 }
 
 .form-box select {

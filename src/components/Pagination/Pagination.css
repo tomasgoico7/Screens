@@ -17,10 +17,10 @@ button:hover {
 }
 
 button:disabled {
-  background-color: #f0f0f0; /* Cambia el color de fondo */
-  color: #cccccc; /* Cambia el color del texto */
-  opacity: 0.7; /* Ajusta la opacidad del botón */
-  cursor: not-allowed; /* Cambia el cursor al pasar sobre el botón deshabilitado */
+  background-color: #f0f0f0;
+  color: #cccccc;
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .page-numbers {
@@ -29,11 +29,11 @@ button:disabled {
 }
 
 .page-number {
-  color: #3996f3; /* Celeste */
+  color: #3996f3;
   cursor: pointer;
-  margin: 0px 5px; /* Ajusta el margen horizontal entre los números de página */
+  margin: 0px 5px;
 }
 
 .active.page-number {
-  font-weight: bold; /* Puedes añadir negrita al número de página activo si lo deseas */
+  font-weight: bold;
 }

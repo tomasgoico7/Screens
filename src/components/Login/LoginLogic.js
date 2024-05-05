@@ -8,7 +8,6 @@ export const useLoginLogic = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Verificar si ya hay un token almacenado en el almacenamiento local
     const token = localStorage.getItem("token");
     if (token) {
       setIsLoggedIn(true);
@@ -23,8 +22,8 @@ export const useLoginLogic = () => {
         { headers: { "Content-Type": "application/json" } }
       );
       localStorage.setItem("token", response.data.token);
-      setIsLoggedIn(true); // Establecer el estado de inicio de sesión como verdadero
-      setError(""); // Reiniciar el estado de error cuando se inicia sesión correctamente
+      setIsLoggedIn(true);
+      setError("");
     } catch (error) {
       console.error("Error al iniciar sesión", error);
       setError("Error al iniciar sesión. Verifica tus credenciales.");
@@ -32,8 +31,8 @@ export const useLoginLogic = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Eliminar el token del almacenamiento local
-    setIsLoggedIn(false); // Establecer el estado de inicio de sesión como falso
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
   };
 
   return {

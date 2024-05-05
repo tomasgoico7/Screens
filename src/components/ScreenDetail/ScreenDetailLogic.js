@@ -29,7 +29,7 @@ export const useScreenDetail = (screenId) => {
           "Error al eliminar la pantalla. Inicie sesión o inténtalo de nuevo más tarde."
         );
       } finally {
-        setIsLoading(false); // Desactivar el estado de carga cuando la solicitud se complete
+        setIsLoading(false);
       }
     };
 
@@ -52,8 +52,6 @@ export const useScreenDetail = (screenId) => {
           },
         }
       );
-
-      // Manejar la eliminación exitosa, redireccionar o mostrar mensaje, etc.
     } catch (error) {
       setError(
         "Error al eliminar la pantalla. Inicie sesión o inténtalo de nuevo más tarde."
